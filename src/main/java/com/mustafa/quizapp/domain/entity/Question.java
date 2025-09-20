@@ -1,18 +1,18 @@
-package com.mustafa.quizapp.entity;
+package com.mustafa.quizapp.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "questions")
+@Data
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String questionTitle;
 
     private String option1;
     private String option2;
@@ -23,7 +23,6 @@ public class Question {
 
     private String category;
 
-    private String questionTitle;
     @Enumerated(EnumType.STRING)
     private DifficultyLevelEnum difficultyLevel;
 }
